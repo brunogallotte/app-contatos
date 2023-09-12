@@ -1,31 +1,48 @@
-import styled, { createGlobalStyle } from 'styled-components'
+import styled, { createGlobalStyle } from "styled-components";
+import variables from "./variables";
 
 const EstiloGlobal = createGlobalStyle`
-  * {
-    margin: 0;
+* {
     padding: 0;
+    margin: 0;
     box-sizing: border-box;
     font-family: Roboto, sans-serif;
-  }
-`
-
-export default EstiloGlobal
+    list-style: none;
+    color: #fff;
+    background-color: ${variables.background};
+}
+`;
 
 export const Container = styled.div`
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  background-color: red;
+  max-width: 1024px;
+  width: 100%;
   margin: 0 auto;
-  max-width: 768px;
-  max-height: 1024px;
-  min-height: 100vh;
-`
 
-export const H1 = styled.h1`
-  display: flex;
-  justify-content: flex-start;
-  font-size: 36px;
-  width: 640px;
-  heigth: 200px;
-`
+  @media (max-width: 768px) {
+    width: 90%;
+  }
+`;
+
+export const Campo = styled.input`
+  padding: 8px;
+  width: 100%;
+  font-size: 14px;
+  font-weight: bold;
+  background-color: #fff;
+  border: 1px solid #666666;
+  border-radius: 8px;
+  color: #666666;
+`;
+
+export const Botao = styled.button`
+  text-transform: capitalize;
+  padding: 8px 16px;
+  cursor: pointer;
+  font-weight: bold;
+  background-color: ${variables.roxo};
+  color: #fff;
+  border: none;
+  border-radius: 4px;
+`;
+
+export default EstiloGlobal;
