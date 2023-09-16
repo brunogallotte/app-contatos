@@ -34,9 +34,19 @@ const Contato = ({ id, name: nameOriginal, email: emailOriginal, tell: tellOrigi
       <S.CardContato>
         <S.ContainerStatus>
           <ul>
-            <S.Descricao value={name} disabled={!estaEditando} onChange={(e) => setName(e.target.value)} />
-            <S.Descricao value={tell} disabled={!estaEditando} onChange={(e) => setTell(e.target.value)} />
-            <S.Descricao value={email} disabled={!estaEditando} onChange={(e) => setEmail(e.target.value)} />
+            {estaEditando ? (
+              <>
+                <S.DescricaoVermelha estaEditando={estaEditando} value={name} disabled={!estaEditando} onChange={(e) => setName(e.target.value)} />
+                <S.DescricaoVermelha estaEditando={estaEditando} value={tell} disabled={!estaEditando} onChange={(e) => setTell(e.target.value)} />
+                <S.DescricaoVermelha estaEditando={estaEditando} value={email} disabled={!estaEditando} onChange={(e) => setEmail(e.target.value)} />
+              </>
+            ): (
+            <>
+              <S.Descricao value={name} disabled={!estaEditando} onChange={(e) => setName(e.target.value)} />
+              <S.Descricao value={tell} disabled={!estaEditando} onChange={(e) => setTell(e.target.value)} />
+              <S.Descricao value={email} disabled={!estaEditando} onChange={(e) => setEmail(e.target.value)} />
+            </>
+            )}
           </ul>
         </S.ContainerStatus>
         <S.ContainerButtons>

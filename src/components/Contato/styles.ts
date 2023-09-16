@@ -64,3 +64,8 @@ export const Descricao = styled.textarea`
   background-color: ${variables.background};
   margin-left: 12px;
 `;
+
+export const DescricaoVermelha = styled(Descricao)<{ estaEditando: boolean }>`
+  color: ${props => (props.estaEditando ? 'yellow' : 'inherit')};
+  border: 1px solid #fff;
+`;
